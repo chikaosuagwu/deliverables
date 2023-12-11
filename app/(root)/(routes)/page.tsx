@@ -9,12 +9,11 @@ const SetupPage = () => {
 
   useEffect(() => {
     if (!isOpen) {
-      onOpen()
+      onOpen();
     }
-  }, [isOpen, onOpen])
+  }, [isOpen, onOpen]);
 
   return null;
-  
-}
+};
 
 export default SetupPage;
