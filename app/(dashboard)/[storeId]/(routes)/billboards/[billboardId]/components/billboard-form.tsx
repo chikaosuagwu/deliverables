@@ -15,8 +15,6 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { useParams, useRouter } from "next/navigation";
 import { AlertModal } from "@/components/modals/alert-modal";
-import { ApiAlert } from "@/components/ui/api-alert";
-import { useOrigin } from "@/hooks/use-origin";
 import ImageUpload from "@/components/ui/image-upload";
 
 const formSchema = z.object({
@@ -33,7 +31,6 @@ interface BillboardFormProps {
 export const BillboardForm: React.FC<BillboardFormProps> = ({ initialData }) => {
     const params = useParams();
     const router = useRouter();
-    const origin = useOrigin();
 
     const [open, setOpen] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -55,9 +52,9 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({ initialData }) => 
         try {
             setLoading(true);
             if (initialData) {
-                await axios.patch(`/api/${params.storeId}/billboards/${params.billboardId}`, data);
+              await axios.patch(`/api/${params.storeId}/billboards/${params.billboardId}`, data); 
             } else {
-                await axios.post(`/api/${params.storeId}/billboards`, data);
+              await axios.post(`/api/${params.storeId}/billboards`, data);
             }
             router.refresh();
             router.push(`/${params.storeId}/billboards`)
@@ -151,7 +148,6 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({ initialData }) => 
             </Button>
           </form>
         </Form>
-        <Separator />
       </>
     );
 }
