@@ -21,6 +21,7 @@ const ColorsPage = async ({
         id: item.id,
         name: item.name,
         value: item.value,
+        //@ts-ignore
         createdAt: format(item.createdAt, "MMMM do, yyyy"),
     }))
     return (
